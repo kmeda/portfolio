@@ -8,7 +8,8 @@ body
   width: 100vw
   height: 100vh
   overflow: hidden
-
+  // color: white
+  background-color: $biege
 .sidebar
   display: flex
   flex-direction: column
@@ -23,6 +24,7 @@ body
   z-index: 999
   color: #000
   background-color: rgba(255,255,255,0.7)
+  backface-visibility: hidden
   .logo
     font-size: 1.3em
     position: absolute
@@ -53,11 +55,18 @@ body
     color: #dadada
     margin-left: -75%
     position: relative
+    backface-visibility: hidden
+    .text
+      padding: 50px
+      position: absolute
+      text-align: center
+
   .front-area
     display: inline-block
     min-width: 25%
     width: auto
     height: 100%
+    // border-left: 1px solid #393939
     .content-container
       display: flex
       width: auto
@@ -92,6 +101,8 @@ body
           width: auto
           height: 100%
           border-left: 1px solid #cdcdcd
+          .text
+            float: right
       .go-back-indicator
         height: 100%
         width: 40px
