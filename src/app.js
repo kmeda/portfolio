@@ -6,8 +6,16 @@ import 'gsap/src/uncompressed/plugins/ScrollToPlugin';
 
 $(document).ready(function(){
 
-// var left = $(".side-panel").offset().left;
-// console.log(left);
+
+var width = window.innerWidth;
+var height = window.innerHeight;
+
+window.addEventListener('resize', function(){
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+})
+
 
 //Vertical Scrolling Library
 $(".outer-most").mousewheel(function(event, delta) {
@@ -37,11 +45,6 @@ if (sidebarOpen && left < -300) {
 
 });
 
-// $('.skills').mousewheel(function(e, d){
-//   this.scrollLeft = 0;
-//   this.scrollTop -= (d * 10);
-//
-// });
 
 // Front area animation
 
@@ -52,6 +55,7 @@ sidebarAnimation();
 blinkingPrompt();
 goBackIndicator();
 forwardIndicator();
+dialAnimation();
 
 
 
@@ -66,9 +70,15 @@ $('.back').click(function(){
 
 $('.forward').click(function(){
   console.log("Test");
-
   TweenMax.to('.outer-most', 1, {scrollTo: {x: 0.75*$('.outer-most').width()} ,ease: Power2.easeOut});
+});
 
+$('.forward').mouseenter(function(){
+  tiltDial();
+});
+
+$('.forward').mouseleave(function(){
+  tiltDial();
 });
 
 });
@@ -134,8 +144,6 @@ var sidebarAnimation = ()=> {
     sidePanelLeft = sidePanelLeft === '-75%' ? '0' : '-75%';
 
     if (sidebarOpen) {
-      console.log("Test");
-      console.log(sidePanelLeft);
       var tl = new TimelineMax();
           tl
             .to(['.sidebar', '.outer-most'], 0.3, {left:'-45'})
@@ -148,17 +156,34 @@ var sidebarAnimation = ()=> {
           }, 500);
 
     } else {
-      console.log(sidePanelLeft);
+
       var tl = new TimelineMax();
           tl.to('.side-panel', 0.2, {marginLeft: sidePanelLeft, ease: Power0.easeOut})
             .to(['.sidebar', '.outer-most'], 0.1, {left:'-45'})
             .to('.sidebar', 0, {backgroundColor:"rgba(255,255,255,0.7)", color: "#000", borderRight:"1px solid #cdcdcd"})
             .to(['.sidebar', '.outer-most'], 0.2, {left: '0'});
           $("html, body, *").scrollLeft(0);
-
     }
-
   });
+}
+
+var dialAnimation = function(){
+  TweenMax.set(['.outer-circle', '.inner-circle', '.top-dial'], {transformOrigin:"50% 50%"});
+
+  TweenMax.to('.outer-circle', 75, {rotateZtransformOrigin: "center", rotation: -360, repeat: -1})
+  TweenMax.to('.inner-circle', 100, {rotateZtransformOrigin: "center", rotation: 360, repeat: -1})
+
+  // TweenMax.to('.top-dial', 1, {rotateZtransformOrigin: "center", transform: "rotateY(45deg)", repeat: -1})
+}
 
 
+var dialTilt = false;
+var tiltDial = function(){
+  if (!dialTilt) {
+    TweenMax.to('#Layer_1', 0.2, {scale: 0.95, rotation: 35});
+    dialTilt = true;
+  } else {
+    TweenMax.to('#Layer_1', 0.2, {scale: 1, rotation: 0});
+    dialTilt = false;
+  }
 }
