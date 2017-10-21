@@ -21,17 +21,18 @@ body
   width: 35px
   height: 100%
   top: 0
-  border-right: 1px solid #cdcdcd
+  border-right: 1px solid $black-border
   cursor: pointer
   z-index: 999
-  color: #000
-  background-color: rgba(255,255,255,0.9)
+  // color: #000
+  background-color: rgb(30, 31, 36)
   backface-visibility: hidden
   .logo
     font-size: 1.3em
     position: absolute
     top: 0
     margin-top: 3px
+
   .handle
     display: flex
     justify-content: space-between
@@ -75,57 +76,61 @@ body
       height: 100%
       position: absolute
       .profile
-        display: flex
-        align-items: center
-        justify-content: center
-        padding-left: 50px
+        box-sizing: border-box
         min-width: 50vw
         height: 100%
         position: relative
-        text-align: center
-        .dial
-          // background-color: yellow
-          width: 65%
-          height: 65%
-          // left: 0
-          // top: 0
-          // bottom: 0
-          // right: 0
-          // transform: translate(-50%, -50%)
+        .dial-container
+          display: flex
+          align-items: center
+          justify-content: center
+          width: 100%
+          height: 100%
           position: absolute
-          // z-index: -1
-        .text-overlay
-          width: 50vw
-          // background-color: $neon
-          // opacity: 0.5
-          left: 5%
-          top: 50%
-          bottom: 0
-          right: 0
-          // transform: translate(-50%, -50%)
+          z-index: -1
+          .dial
+            width: 70%
+            height: auto
+        .text-container
+          display: flex
+          align-items: center
+          justify-content: center
+          width: 100%
+          height: 100%
           position: absolute
-          font-family: sans-serif
-          // z-index: 2
-          .greeting
-            font-size: 2em
-          .name
-            font-size: 1.3em
-            span
-              color: $neon
-          .iam
-            font-size: 5em
-            letter-spacing: 5px
-          .endline
-            text-decoration-style: wavy
-
+          z-index: 1
+          left: 0
+          .text-overlay
+            margin-top: 150px
+            text-align: center
+            width: 100%
+            font-family: 'Fira Sans', sans-serif
+            .greeting
+              font-size: 2.5em
+            .name
+              font-size: 1.5em
+              background-color: #8f8b8b
+              color: transparent
+              -webkit-background-clip: text
+              span
+                color: $neon
+            .iam
+              font-size: 4em
+              letter-spacing: 5px
+            .endline
+              background-color: #8f8b8b
+              color: transparent
+              -webkit-background-clip: text
+              font-size: 0.8em
         .forward-indicator
           position: absolute
           left: 100%
-          top: 50%
+          top: 35%
           font-size: 2em
-          transform: translateX(-70px)
+          transform: translateX(-40px)
           color: #6c6c6c
           cursor: pointer
+          z-index: 9
       .projects
         display: flex
         min-width: 40vw
@@ -137,11 +142,127 @@ body
           height: 100%
           border-left: 1px solid $black-border
           overflow: auto
+          position: relative
+
+          .skills-overlay
+            width: 100%
+            height: 100%
+            // box-shadow: inset 0 0 400px rgba(0,0,0,0.3)
+            // background:
+            //   image: url(/assets/crazy.svg)
+            // background-color: rgba(255,255,255,0.6)
+            position: relative
+
+            .tool-chain
+              display: flex
+              flex-direction: column
+              align-items: center
+              justify-content: center
+              width: 100%
+              height: 100%
+              // background-color: pink
+              .label
+                margin-bottom: 50px
+                width: 100%
+                font-size: 1.3em
+                background-color: #8f8b8b
+                color: transparent
+                // text-shadow: 1px 1px 1px rgba(255,255,255,0.5)
+                -webkit-background-clip: text
+
+              .skill
+                text-align: left
+                width: 70%
+                min-height: 40px
+                font-size: 0.8em
+                font-family: "Fira sans"
+                background-color: #8f8b8b
+                color: transparent
+                -webkit-background-clip: text
+                margin-bottom: 5px
+                position: relative
+                // color: #cccaca
+                .level
+                  margin-top: 5px
+                  width: 100%
+                  height: 1px
+                  background-color: rgba(10, 252, 155, 0.2)
+                  position: relative
+                .level.html
+                  &::after
+                    content: ''
+                    position: absolute
+                    width: 75%
+                    height: 2px
+                    background-color: rgba(10, 252, 155, 1)
+                .level.javascript
+                  &::after
+                    content: ''
+                    position: absolute
+                    width: 65%
+                    height: 2px
+                    background-color: rgba(10, 252, 155, 1)
+                .level.jquery
+                  &::after
+                    content: ''
+                    position: absolute
+                    width: 80%
+                    height: 2px
+                    background-color: rgba(10, 252, 155, 1)
+                .level.react
+                  &::after
+                    content: ''
+                    position: absolute
+                    width: 83%
+                    height: 2px
+                    background-color: rgba(10, 252, 155, 1)
+                .level.nodejs
+                  &::after
+                    content: ''
+                    position: absolute
+                    width: 65%
+                    height: 2px
+                    background-color: rgba(10, 252, 155, 1)
+                .level.mongo
+                  &::after
+                    content: ''
+                    position: absolute
+                    width: 65%
+                    height: 2px
+                    background-color: rgba(10, 252, 155, 1)
+                .level.webpack
+                  &::after
+                    content: ''
+                    position: absolute
+                    width: 70%
+                    height: 2px
+                    background-color: rgba(10, 252, 155, 1)
+                .level.ps
+                  &::after
+                    content: ''
+                    position: absolute
+                    width: 60%
+                    height: 2px
+                    background-color: rgba(10, 252, 155, 1)
+                .level.ai
+                  &::after
+                    content: ''
+                    position: absolute
+                    width: 55%
+                    height: 2px
+                    background-color: rgba(10, 252, 155, 1)
+
+
+
+
+
         .project
           min-width: 3000px
           width: auto
           height: 100%
           border-left: 1px solid $black-border
+          // background:
+          //   image: url(/assets/hex-new.png)
         .go-back-indicator
           height: 100%
           min-width: 40px
@@ -152,11 +273,6 @@ body
           .back
             color: #6c6c6c
             cursor: pointer
-.text
-  padding: 20px
-  // transform: rotate(-90deg)
-
-
 
 
 ::-webkit-scrollbar

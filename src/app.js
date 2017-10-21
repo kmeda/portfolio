@@ -14,8 +14,7 @@ window.addEventListener('resize', function(){
   width = window.innerWidth;
   height = window.innerHeight;
 
-})
-
+});
 
 //Vertical Scrolling Library
 $(".outer-most").mousewheel(function(event, delta) {
@@ -32,7 +31,7 @@ if (sidebarOpen && left < -300) {
 
       tl.to('.side-panel', 0.2, {marginLeft: "-75%", ease: Power0.easeOut})
         .to(['.sidebar', '.outer-most'], 0.1, {left:'-45'})
-        .to('.sidebar', 0, {backgroundColor:"rgba(255,255,255,0.7)", borderRight:"1px solid #cdcdcd"})
+        .to('.sidebar', 0, {backgroundColor:"rgb(30, 31, 36)", borderRight:"1px solid #393939"})
         .to(['.sidebar', '.outer-most'], 0.2, {left: '0'});
 
       TweenMax.to('.outer-most', 0.1, {scrollTo: {x: "0"},ease: Power2.easeOut});
@@ -44,7 +43,6 @@ if (sidebarOpen && left < -300) {
 }
 
 });
-
 
 // Front area animation
 
@@ -83,16 +81,10 @@ $('.forward').mouseleave(function(){
 
 });
 
-
-
-
 // All Functions
 
 var introTimeline = () => {
-  //fade in video
-  //overlay video
-  //move in frontAreaAnimation
-  //movein sidebar and controls
+
 }
 
 
@@ -147,7 +139,7 @@ var sidebarAnimation = ()=> {
       var tl = new TimelineMax();
           tl
             .to(['.sidebar', '.outer-most'], 0.3, {left:'-45'})
-            .to('.sidebar', 0, {backgroundColor:"rgb(30, 31, 36)", color: "#ffffff", borderRight:"1px solid #393939"})
+            .to('.sidebar', 0, {backgroundColor:"#000", color: "#ffffff", borderRight:"1px solid #393939"})
             .to(['.sidebar', '.outer-most'], 0.1, {delay: 0.1, left: '0'})
             .to('.side-panel',0.2, {marginLeft: sidePanelLeft, ease: Linear.easeIn});
 
@@ -160,7 +152,7 @@ var sidebarAnimation = ()=> {
       var tl = new TimelineMax();
           tl.to('.side-panel', 0.2, {marginLeft: sidePanelLeft, ease: Power0.easeOut})
             .to(['.sidebar', '.outer-most'], 0.1, {left:'-45'})
-            .to('.sidebar', 0, {backgroundColor:"rgba(255,255,255,0.7)", color: "#000", borderRight:"1px solid #cdcdcd"})
+            .to('.sidebar', 0, {backgroundColor:"rgb(30, 31, 36)", color: "#ffffff", borderRight:"1px solid #393939"})
             .to(['.sidebar', '.outer-most'], 0.2, {left: '0'});
           $("html, body, *").scrollLeft(0);
     }
@@ -169,11 +161,8 @@ var sidebarAnimation = ()=> {
 
 var dialAnimation = function(){
   TweenMax.set(['.outer-circle', '.inner-circle', '.top-dial'], {transformOrigin:"50% 50%"});
-
-  TweenMax.to('.outer-circle', 75, {rotateZtransformOrigin: "center", rotation: -360, repeat: -1})
-  TweenMax.to('.inner-circle', 100, {rotateZtransformOrigin: "center", rotation: 360, repeat: -1})
-
-  // TweenMax.to('.top-dial', 1, {rotateZtransformOrigin: "center", transform: "rotateY(45deg)", repeat: -1})
+  TweenMax.to('.outer-circle', 75, {rotateZtransformOrigin: "center", rotation: -360, ease: Linear.easeNone, repeat: -1})
+  TweenMax.to('.inner-circle', 100, {rotateZtransformOrigin: "center", rotation: 360, ease: Linear.easeNone, repeat: -1})
 }
 
 
