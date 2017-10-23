@@ -10,7 +10,6 @@ body
   height: 100vh
   overflow: hidden
   color: white
-  background-color: $biege
   background-color: rgb(30, 31, 36)
 .sidebar
   display: flex
@@ -24,7 +23,6 @@ body
   border-right: 1px solid $black-border
   cursor: pointer
   z-index: 999
-  // color: #000
   background-color: rgb(30, 31, 36)
   backface-visibility: hidden
   .logo
@@ -50,11 +48,15 @@ body
   height: 100%
   overflow-Y: hidden
   position: absolute
+  background:
+    image: url("/texture.png")
+    // size: cover
+    // repeat: no-repeat
   .side-panel
     display: inline-block
     width: 75%
     height: 100%
-    background-color: rgb(30, 31, 36)
+    // background-color: rgb(30, 31, 36)
     color: #dadada
     margin-left: -75%
     position: relative
@@ -80,7 +82,6 @@ body
         min-width: 50vw
         height: 100%
         position: relative
-        // box-shadow: inset 0 0 50px rgba(0,0,0,1)
         .dial-container
           display: flex
           align-items: center
@@ -118,6 +119,7 @@ body
             .iam
               font-size: 4em
               letter-spacing: 5px
+              padding-left: 20px
             .endline
               background-color: #8f8b8b
               color: transparent
@@ -154,7 +156,7 @@ body
             height: 100%
             position: relative
             background:
-              image: url("/assets/halftone-simple.png")
+              image: url("/halftone-simple.png")
               size: cover
               repeat: no-repeat
 
@@ -166,7 +168,10 @@ body
               width: 80%
               height: 100%
               min-height: 470px
+              font-family: "Fira sans"
               // box-shadow: 0 0 30px rgba(0,0,0,0.9)
+              background:
+                image: url("/honeycomb.png")
 
               .label
                 margin-bottom: 30px
@@ -180,7 +185,6 @@ body
                 width: 70%
                 min-height: 40px
                 font-size: 0.8em
-                font-family: "Fira sans"
                 background-color: #8f8b8b
                 color: transparent
                 -webkit-background-clip: text
@@ -258,22 +262,18 @@ body
                     width: 55%
                     height: 2px
                     background-color: rgba(10, 252, 155, 1)
-
-
-
-
-
-        .projects
+        .projects-wrapper
           display: flex
           align-items: center
           justify-content: center
-          min-width: 2000px
+          min-width: 2500px
           width: auto
           height: 100%
           padding-right: 100px
+          padding-left: 50px
           border-left: 1px solid $black-border
-          // background:
-          //   image: url(/assets/hex-new.png)
+          background:
+            image: url("/honeycomb.png")
           .grid-container
             display: flex
             align-items: center
@@ -286,226 +286,236 @@ body
               width: 100%
               height: 100%
               display: grid
-              grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr
+              grid-template-columns: repeat( 7, 1fr )
               grid-template-rows: 1fr 1fr 1fr
+              grid-gap: 15px 15px
               // background-color: pink
               .project
                 // width: 300px
                 // min-height: 233
-                margin-bottom: 10px
-                margin-left: 10px
+                // margin-bottom: 10px
+                // margin-left: 10px
                 box-shadow: 0 0 30px rgba(0,0,0,0.9)
                 text-align: center
-              // .project-00
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 1
-              //   grid-row-end: 2
-              //   // background-color: pink
-              //   background:
-              //     image: url(/assets/book01.png)
-              //     size: cover
-              //     repeat: no-repeat
-              // .project-01
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 3
-              //   grid-row-end: 5
-              //   background-color: yellow
-              //   background:
-              //     image: url(/assets/mint01.png)
-              //     size: cover
-              //     repeat: no-repeat
-              // .project-02
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 5
-              //   grid-row-end: 9
-              //   background-color: green
-              //   background:
-              //     image: url(/assets/book00.png)
-              //     size: cover
-              //     position: center
-              //     repeat: no-repeat
-              // .project-03
-              //   grid-column-start: 2
-              //   grid-column-end: 3
-              //   grid-row-start: 1
-              //   grid-row-end: 3
-              //   background-color: green
-              //   background:
-              //     image: url(/assets/mint00.png)
-              //     size: cover
-              //     position: center
-              //     repeat: no-repeat
-              // .project-04
-              //   grid-column-start: 2
-              //   grid-column-end: 3
-              //   grid-row-start: 3
-              //   grid-row-end: 5
-              //   background-color: pink
-              //   background:
-              //     image: url(/assets/book01.png)
-              //     size: cover
-              //     repeat: no-repeat
-              // .project-05
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 3
-              //   grid-row-end: 5
-              //   background-color: yellow
-              //   background:
-              //     image: url(/assets/mint01.png)
-              //     size: cover
-              //     repeat: no-repeat
-              // .project-06
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 5
-              //   grid-row-end: 9
-              //   background-color: green
-              //   background:
-              //     image: url(/assets/book00.png)
-              //     size: cover
-              //     position: center
-              //     repeat: no-repeat
-              // .project-07
-              //   grid-column-start: 2
-              //   grid-column-end: 3
-              //   grid-row-start: 1
-              //   grid-row-end: 3
-              //   background-color: green
-              //   background:
-              //     image: url(/assets/mint00.png)
-              //     size: cover
-              //     position: center
-              //     repeat: no-repeat
-              // .project-08
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 1
-              //   grid-row-end: 3
-              //   background-color: pink
-              //   background:
-              //     image: url(/assets/book01.png)
-              //     size: cover
-              //     repeat: no-repeat
-              // .project-09
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 3
-              //   grid-row-end: 5
-              //   background-color: yellow
-              //   background:
-              //     image: url(/assets/mint01.png)
-              //     size: cover
-              //     repeat: no-repeat
-              // .project-10
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 5
-              //   grid-row-end: 9
-              //   background-color: green
-              //   background:
-              //     image: url(/assets/book00.png)
-              //     size: cover
-              //     position: center
-              //     repeat: no-repeat
-              // .project-11
-              //   grid-column-start: 2
-              //   grid-column-end: 3
-              //   grid-row-start: 1
-              //   grid-row-end: 3
-              //   background-color: green
-              //   background:
-              //     image: url(/assets/mint00.png)
-              //     size: cover
-              //     position: center
-              //     repeat: no-repeat
-              // .project-12
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 1
-              //   grid-row-end: 3
-              //   background-color: pink
-              //   background:
-              //     image: url(/assets/book01.png)
-              //     size: cover
-              //     repeat: no-repeat
-              // .project-13
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 3
-              //   grid-row-end: 5
-              //   background-color: yellow
-              //   background:
-              //     image: url(/assets/mint01.png)
-              //     size: cover
-              //     repeat: no-repeat
-              // .project-14
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 5
-              //   grid-row-end: 9
-              //   background-color: green
-              //   background:
-              //     image: url(/assets/book00.png)
-              //     size: cover
-              //     position: center
-              //     repeat: no-repeat
-              // .project-15
-              //   grid-column-start: 2
-              //   grid-column-end: 3
-              //   grid-row-start: 1
-              //   grid-row-end: 3
-              //   background-color: green
-              //   background:
-              //     image: url(/assets/mint00.png)
-              //     size: cover
-              //     position: center
-              //     repeat: no-repeat
-              // .project-16
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 1
-              //   grid-row-end: 3
-              //   background-color: pink
-              //   background:
-              //     image: url(/assets/book01.png)
-              //     size: cover
-              //     repeat: no-repeat
-              // .project-17
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 3
-              //   grid-row-end: 5
-              //   background-color: yellow
-              //   background:
-              //     image: url(/assets/mint01.png)
-              //     size: cover
-              //     repeat: no-repeat
-              // .project-18
-              //   grid-column-start: 1
-              //   grid-column-end: 2
-              //   grid-row-start: 5
-              //   grid-row-end: 9
-              //   background-color: green
-              //   background:
-              //     image: url(/assets/book00.png)
-              //     size: cover
-              //     position: center
-              //     repeat: no-repeat
-              // .project-19
-              //   grid-column-start: 2
-              //   grid-column-end: 3
-              //   grid-row-start: 1
-              //   grid-row-end: 3
-              //   background-color: green
-              //   background:
-              //     image: url(/assets/mint00.png)
-              //     size: cover
-              //     position: center
-              //     repeat: no-repeat
+                position: relative
+                .overlay
+                  position: absolute
+                  width: 100%
+                  height: 100%
+                  background-color: rgba(0,0,0,0.5)
+                  left: 0
+                  top: 0
+                  &:hover
+                    background-color: rgba(0,0,0,0.2)
+
+              .project-21
+                grid-column-start: 1
+                grid-column-end: 2
+                grid-row-start: 1
+                grid-row-end: 2
+                background:
+                  image: url(/project-21.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-20
+                grid-column-start: 1
+                grid-column-end: 2
+                grid-row-start: 2
+                grid-row-end: 3
+                background:
+                  image: url(/project-20.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-19
+                grid-column-start: 1
+                grid-column-end: 2
+                grid-row-start: 3
+                background:
+                  image: url(/project-19.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-18
+                grid-column-start: 2
+                grid-column-end: 3
+                grid-row-start: 1
+                grid-row-end: 2
+                background:
+                  image: url(/project-18.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-17
+                grid-column-start: 2
+                grid-column-end: 3
+                grid-row-start: 2
+                grid-row-end: 3
+                background:
+                  image: url(/project-17.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-16
+                grid-column-start: 2
+                grid-column-end: 3
+                grid-row-start: 3
+                background:
+                  image: url(/mint01.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-15
+                grid-column-start: 3
+                grid-column-end: 4
+                grid-row-start: 1
+                grid-row-end: 2
+                background:
+                  image: url(/book00.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-14
+                grid-column-start: 3
+                grid-column-end: 4
+                grid-row-start: 2
+                grid-row-end: 3
+                background:
+                  image: url(/mint00.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-13
+                grid-column-start: 3
+                grid-column-end: 4
+                grid-row-start: 3
+                grid-row-end: 3
+                background:
+                  image: url(/project-13.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-12
+                grid-column-start: 4
+                grid-column-end: 5
+                grid-row-start: 1
+                grid-row-end: 2
+                background:
+                  image: url(/project-12.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-11
+                grid-column-start: 4
+                grid-column-end: 5
+                grid-row-start: 2
+                grid-row-end: 3
+                background:
+                  image: url(/project-11.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-10
+                grid-column-start: 4
+                grid-column-end: 5
+                grid-row-start: 3
+                grid-row-end: 3
+                background:
+                  image: url(/project-10.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-09
+                grid-column-start: 5
+                grid-column-end: 6
+                grid-row-start: 1
+                grid-row-end: 2
+                background:
+                  image: url(/project-09.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-08
+                grid-column-start: 5
+                grid-column-end: 6
+                grid-row-start: 2
+                grid-row-end: 3
+                background:
+                  image: url(/project-08.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-07
+                grid-column-start: 5
+                grid-column-end: 6
+                grid-row-start: 3
+                grid-row-end: 3
+                background:
+                  image: url(/project-07.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-06
+                grid-column-start: 6
+                grid-column-end: 7
+                grid-row-start: 1
+                grid-row-end: 2
+                background:
+                  image: url(/project-06.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-05
+                grid-column-start: 6
+                grid-column-end: 7
+                grid-row-start: 2
+                grid-row-end: 3
+                background:
+                  image: url(/project-05.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-04
+                grid-column-start: 6
+                grid-column-end: 7
+                grid-row-start: 3
+                grid-row-end: 3
+                background:
+                  image: url(/project-04.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-03
+                grid-column-start: 7
+                grid-column-end: 8
+                grid-row-start: 1
+                grid-row-end: 2
+                background:
+                  image: url(/project-03.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-02
+                grid-column-start: 7
+                grid-column-end: 8
+                grid-row-start: 2
+                grid-row-end: 3
+                background:
+                  image: url(/project-02.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
+              .project-01
+                grid-column-start: 7
+                grid-column-end: 8
+                grid-row-start: 3
+                grid-row-end: 3
+                background:
+                  image: url(/project-01.png)
+                  size: cover
+                  position: center
+                  repeat: no-repeat
         .go-back-indicator
           height: 100%
           min-width: 40px
@@ -518,6 +528,7 @@ body
           .back
             color: #6c6c6c
             cursor: pointer
+
 
 
 ::-webkit-scrollbar
