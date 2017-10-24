@@ -3,6 +3,7 @@ var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+var env = process.env.NODE_ENV || "production";
 
 const VENDOR_LIBS = ['jquery'];
 

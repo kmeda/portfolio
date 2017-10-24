@@ -49,14 +49,11 @@ body
   overflow-Y: hidden
   position: absolute
   background:
-    image: url("/texture.png")
-    // size: cover
-    // repeat: no-repeat
+    image: url(../assets/texture.png)
   .side-panel
     display: inline-block
     width: 75%
     height: 100%
-    // background-color: rgb(30, 31, 36)
     color: #dadada
     margin-left: -75%
     position: relative
@@ -66,6 +63,26 @@ body
       height: 100%
       position: absolute
       border-right: 1px solid $black-border
+      .story-top
+        position: absolute
+        width: 100%
+        height: 60%
+        bottom: 40%
+        left: 0
+        right: 0
+        top: 0
+        // background: rgba(0,0,0,0.7)
+      .bottom-map
+        position: absolute
+        width: 100%
+        height: 60%
+        bottom: 0
+        top: 60%
+        left: 0
+        right: 0
+        
+
+
 
   .front-area
     display: inline-block
@@ -109,17 +126,25 @@ body
             font-family: 'Fira Sans', sans-serif
             .greeting
               font-size: 2.5em
+              background-color: #fafafa
+              color: transparent
+              -webkit-background-clip: text
             .name
               font-size: 1.5em
               background-color: #8f8b8b
               color: transparent
               -webkit-background-clip: text
               span
-                color: $neon
+                background-color: $neon
+                color: transparent
+                -webkit-background-clip: text
             .iam
               font-size: 4em
               letter-spacing: 5px
               padding-left: 20px
+              background-color: #fafafa
+              color: transparent
+              -webkit-background-clip: text
             .endline
               background-color: #8f8b8b
               color: transparent
@@ -144,9 +169,7 @@ body
           min-width: 350px
           height: 100%
           border-left: 1px solid $black-border
-          // overflow: auto
           position: relative
-
           .skills-overlay
             display: flex
             flex-direction: column
@@ -156,10 +179,9 @@ body
             height: 100%
             position: relative
             background:
-              image: url("/halftonesimple.png")
+              image: url(../assets/halftonesimple.png)
               size: cover
               repeat: no-repeat
-
             .tool-chain
               display: flex
               flex-direction: column
@@ -169,10 +191,8 @@ body
               height: 100%
               min-height: 470px
               font-family: "Fira sans"
-              // box-shadow: 0 0 30px rgba(0,0,0,0.9)
               background:
-                image: url("/honeycomb.png")
-
+                image: url(../assets/honeycomb.png)
               .label
                 margin-bottom: 30px
                 width: 100%
@@ -190,9 +210,6 @@ body
                 -webkit-background-clip: text
                 margin-bottom: 5px
                 position: relative
-
-                // padding: 5px 15px 0px 15px
-
                 .level
                   margin-top: 5px
                   width: 100%
@@ -273,7 +290,7 @@ body
           padding-left: 50px
           border-left: 1px solid $black-border
           background:
-            image: url("/honeycomb.png")
+            image: url(../assets/honeycomb.png)
           .grid-container
             display: flex
             align-items: center
@@ -281,20 +298,13 @@ body
             width: 97%
             height: 90%
             .grid
-              // display: flex
-              // flex-wrap: wrap
               width: 100%
               height: 100%
               display: grid
               grid-template-columns: repeat( 7, 1fr )
               grid-template-rows: 1fr 1fr 1fr
               grid-gap: 15px 15px
-              // background-color: pink
               .project
-                // width: 300px
-                // min-height: 233
-                // margin-bottom: 10px
-                // margin-left: 10px
                 box-shadow: 0 0 30px rgba(0,0,0,0.9)
                 text-align: center
                 position: relative
@@ -302,11 +312,65 @@ body
                   position: absolute
                   width: 100%
                   height: 100%
-                  background-color: rgba(0,0,0,0.5)
+                  background-color: rgba(0,0,0,0.65)
                   left: 0
                   top: 0
+                  overflow: hidden
+                  font-family: "Fira Sans"
                   &:hover
                     background-color: rgba(0,0,0,0.2)
+                  .count
+                    position: absolute
+                    font-size: 1.1em
+                    padding-left: 5px
+                    // padding-top: 5px
+                    z-index: 9
+                    background-color: #e3e0e0
+                    color: transparent
+                    -webkit-background-clip: text
+                  .description
+                    position: absolute
+                    // font-size: 1em
+                    z-index: 9
+                    background-color: #e3e0e0
+                    color: transparent
+                    -webkit-background-clip: text
+                    left: 50%
+                    top: 50%
+                    transform: translate(-50%, -50%)
+                  .popup
+                    position: absolute
+                    width: 100%
+                    height: 60%
+                    background-color: rgba(0,0,0,0.9)
+                    bottom: 0
+                    top: 100%
+                    .stack
+                      position: absolute
+                      left: 5%
+                      top: 50%
+                      span
+                        text-align: left
+                        padding-left: 5px
+                        padding-right: 15px
+                        font-family: "Fira sans"
+                        font-size: 0.7em
+                        background-color: #e3e0e0
+                        color: transparent
+                        -webkit-background-clip: text
+                    .github
+                      position: absolute
+                      left: 50%
+                      // top: 75%
+                      bottom: 10%
+                      transform: translateX(-30px)
+                      cursor: pointer
+                    .live-link
+                      position: absolute
+                      left: 50%
+                      // top: 75%
+                      bottom: 10%
+                      cursor: pointer
 
               .project-21
                 grid-column-start: 1
@@ -314,17 +378,22 @@ body
                 grid-row-start: 1
                 grid-row-end: 2
                 background:
-                  image: url(/project21.png)
+                  image: url(../assets/project21.png)
                   size: cover
                   position: center
                   repeat: no-repeat
+                .overlay
+                  .popup
+                    .description
+                    .github
+                    .live-link
               .project-20
                 grid-column-start: 1
                 grid-column-end: 2
                 grid-row-start: 2
                 grid-row-end: 3
                 background:
-                  image: url(/project20.png)
+                  image: url(../assets/project20.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -333,7 +402,7 @@ body
                 grid-column-end: 2
                 grid-row-start: 3
                 background:
-                  image: url(/project19.png)
+                  image: url(../assets/project19.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -343,7 +412,7 @@ body
                 grid-row-start: 1
                 grid-row-end: 2
                 background:
-                  image: url(/project18.png)
+                  image: url(../assets/project18.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -353,7 +422,7 @@ body
                 grid-row-start: 2
                 grid-row-end: 3
                 background:
-                  image: url(/project17.png)
+                  image: url(../assets/project17.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -392,7 +461,7 @@ body
                 grid-row-start: 3
                 grid-row-end: 3
                 background:
-                  image: url(/project13.png)
+                  image: url(../assets/project13.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -402,7 +471,7 @@ body
                 grid-row-start: 1
                 grid-row-end: 2
                 background:
-                  image: url(/project12.png)
+                  image: url(../assets/project12.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -412,7 +481,7 @@ body
                 grid-row-start: 2
                 grid-row-end: 3
                 background:
-                  image: url(/project11.png)
+                  image: url(../assets/project11.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -422,7 +491,7 @@ body
                 grid-row-start: 3
                 grid-row-end: 3
                 background:
-                  image: url(/project10.png)
+                  image: url(../assets/project10.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -432,7 +501,7 @@ body
                 grid-row-start: 1
                 grid-row-end: 2
                 background:
-                  image: url(/project09.png)
+                  image: url(../assets/project09.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -442,7 +511,7 @@ body
                 grid-row-start: 2
                 grid-row-end: 3
                 background:
-                  image: url(/project08.png)
+                  image: url(../assets/project08.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -452,7 +521,7 @@ body
                 grid-row-start: 3
                 grid-row-end: 3
                 background:
-                  image: url(/project07.png)
+                  image: url(../assets/project07.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -462,7 +531,7 @@ body
                 grid-row-start: 1
                 grid-row-end: 2
                 background:
-                  image: url(/project06.png)
+                  image: url(../assets/project06.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -472,7 +541,7 @@ body
                 grid-row-start: 2
                 grid-row-end: 3
                 background:
-                  image: url(/project05.png)
+                  image: url(../assets/project05.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -482,7 +551,7 @@ body
                 grid-row-start: 3
                 grid-row-end: 3
                 background:
-                  image: url(/project04.png)
+                  image: url(../assets/project04.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -492,7 +561,7 @@ body
                 grid-row-start: 1
                 grid-row-end: 2
                 background:
-                  image: url(/project03.png)
+                  image: url(../assets/project03.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -502,7 +571,7 @@ body
                 grid-row-start: 2
                 grid-row-end: 3
                 background:
-                  image: url(/project02.png)
+                  image: url(../assets/project02.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -512,7 +581,7 @@ body
                 grid-row-start: 3
                 grid-row-end: 3
                 background:
-                  image: url(/project01.png)
+                  image: url(../assets/project01.png)
                   size: cover
                   position: center
                   repeat: no-repeat
@@ -529,17 +598,21 @@ body
             color: #6c6c6c
             cursor: pointer
 
-
-
 ::-webkit-scrollbar
-  width: 3px
-  height: 3px
-
+  width: 10px
+  height: 10px
 ::-webkit-scrollbar-track
-  background: #000
-  border: 2px solid rgba(0,0,0,0.7)
+  background: rgb(30, 31, 36)
   background-clip: content-box
-
 ::-webkit-scrollbar-thumb
-  background: #191919
-  border: 1px solid #000
+  background: #6c6c6c
+  border: 3px solid rgb(30, 31, 36)
+  border-radius: 5px
+
+@keyframes projectOverlay
+  0%
+    height: 100%
+  50%
+    height: 50%
+  100%
+    height: 0%

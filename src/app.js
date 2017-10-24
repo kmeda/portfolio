@@ -176,3 +176,17 @@ var tiltDial = function(){
     dialTilt = false;
   }
 }
+
+$('.overlay').each(function(i, elem){
+
+  $(this).mouseenter(function(){
+
+      TweenMax.to($(this).children(".popup"), .2, {'top': '40%', ease: Linear.easeNone});
+      TweenMax.to($(this).children(".count"), .2, {'top': '40%', ease: Linear.easeNone});
+    });
+    $(this).mouseleave(function(){
+
+      TweenMax.to($(this).children(".popup"), .2, {'top': '100%', ease: Linear.easeNone});
+      TweenMax.to($(this).children(".count"), .2, {'top': '0%', ease: Linear.easeNone});
+    });
+});
