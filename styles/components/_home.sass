@@ -1,7 +1,11 @@
 $biege : rgb(239,237,230)
 $black-border: #393939
 $neon : #0afc9b
+$body-bg : #1e1f24
 
+a
+  color: inherit
+  text-decoration: none
 
 body
   padding: 0
@@ -64,52 +68,99 @@ body
       position: absolute
       border-right: 1px solid $black-border
       padding-left: 35px
-      .story-top
+      backface-visibility: hidden
+      background:
+        image: url(../assets/honeycomb.png)
+      .about-me
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
         position: relative
         width: 100%
-        height: 75%
-        bottom: 40%
-        left: 0
-        right: 0
-        top: 0
-        // background: rgba(0,0,0,0.7)
-        &::after
-          content: 'About Me'
-          position: absolute
+        height: 100%
+        background: linear-gradient(to right, rgba(30,31,36,0.20) 0%,rgba(30,31,36,1) 50%,rgba(30,31,36,0.20) 100%)
+        backface-visibility: hidden
+        .content-box
+          display: flex
+          flex-direction: column
+          align-items: center
+          justify-content: center
           width: 90%
-          height: 70%
+          height: 90%
           border: 1px solid $black-border
-          top: 60%
-          left: 50%
-          transform: translate(-50%, -50%)
-          z-index: -1
+          position: relative
+          &::before
+            content: 'About'
+            color: $neon
+            font-family: "Fira sans"
+            font-size: 0.8em
+            letter-spacing: 0.2em
+            position: absolute
+            top: 0
+            right: 0
+            margin-top: -9px
+            margin-right: 10px
+          .avatar
+            box-sizing: border-box
+            position: absolute
+            width: 180px
+            height: 180px
+            top: -3%
+            left: 3%
+            z-index: 2
+            border: 6px solid $black-border
+            box-shadow: 0 0 20px rgba(0,0,0,0.8)
+            backface-visibility: hidden
+            background:
+              image: url(../assets/pp.jpg)
+              size: cover
+              repeat: no-repeat
+            .contact
+              display: flex
+              flex-direction: column
+              align-items: center
+              position: absolute
+              bottom: 0
+              left: 115%
+              z-index: 1
+              .contact-glyph
+                font-size: 1.3em
+              .email
+                margin-bottom: 7px
+              .github
+                margin-bottom: 7px
+              .skype
 
-        .avatar
-          position: absolute
-          width: 220px
-          height: 220px
-          border-radius: 50%
-          box-shadow: 0 0 20px rgba(0,0,0,0.9)
-          top: 20%
-          left: 25%
-          transform: translate(-50%, -50%)
-          background:
-            image: url(../assets/pp.jpg)
-            size: cover
-            repeat: no-repeat
-
-      .bottom-map
-        position: absolute
-        width: 100%
-        height: 25%
-        bottom: 0
-        top: 75%
-        left: 0
-        right: 0
-        border-top: 1px solid $black-border
-
-
-
+          .content
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: flex-start
+            width: 90%
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            span
+              font-family: "Fira sans"
+              background-color: #8f8b8b
+              color: transparent
+              -webkit-background-clip: text
+              text-align: justify
+              font-size: 0.9em
+              text-indent: 2em
+              line-height: 1.5em
+          .sig
+            width: 90px
+            height: 80px
+            position: absolute
+            right: 5%
+            bottom: 2%
+            background:
+              image: url(../assets/sig.png)
+              size: contain
+              repeat: no-repeat
 
   .front-area
     display: inline-block
@@ -206,20 +257,20 @@ body
             height: 100%
             position: relative
             background:
-              image: url(../assets/halftonesimple.png)
-              size: cover
-              repeat: no-repeat
+              // image: url(../assets/honeycomb.png)
             .tool-chain
               display: flex
               flex-direction: column
               align-items: center
               justify-content: center
-              width: 80%
+              width: 100%
               height: 100%
               min-height: 470px
               font-family: "Fira sans"
               background:
-                image: url(../assets/honeycomb.png)
+                image: url(../assets/halftonesimple.png)
+                size: cover
+                repeat: no-repeat
               .label
                 margin-bottom: 30px
                 width: 100%
@@ -227,6 +278,11 @@ body
                 background-color: #8f8b8b
                 color: transparent
                 -webkit-background-clip: text
+                span
+                  font-size: 0.9em
+                  background-color: $neon
+                  color: transparent
+                  -webkit-background-clip: text
               .skill
                 text-align: left
                 width: 70%
@@ -261,14 +317,14 @@ body
                   &::after
                     content: ''
                     position: absolute
-                    width: 80%
+                    width: 70%
                     height: 2px
                     background-color: rgba(10, 252, 155, 1)
                 .level.react
                   &::after
                     content: ''
                     position: absolute
-                    width: 83%
+                    width: 80%
                     height: 2px
                     background-color: rgba(10, 252, 155, 1)
                 .level.nodejs
@@ -282,28 +338,28 @@ body
                   &::after
                     content: ''
                     position: absolute
-                    width: 65%
+                    width: 60%
                     height: 2px
                     background-color: rgba(10, 252, 155, 1)
                 .level.webpack
                   &::after
                     content: ''
                     position: absolute
-                    width: 70%
+                    width: 60%
                     height: 2px
                     background-color: rgba(10, 252, 155, 1)
                 .level.ps
                   &::after
                     content: ''
                     position: absolute
-                    width: 60%
+                    width: 45%
                     height: 2px
                     background-color: rgba(10, 252, 155, 1)
                 .level.ai
                   &::after
                     content: ''
                     position: absolute
-                    width: 55%
+                    width: 40%
                     height: 2px
                     background-color: rgba(10, 252, 155, 1)
         .projects-wrapper
@@ -316,8 +372,20 @@ body
           padding-right: 100px
           padding-left: 50px
           border-left: 1px solid $black-border
+          position: relative
           background:
             image: url(../assets/honeycomb.png)
+          &::before
+            content: 'Portfolio'
+            position: absolute
+            transform: rotate(-90deg)
+            left: 0
+            background-color: rgba(10, 252, 155, 0.9)
+            color: transparent
+            -webkit-background-clip: text
+            font-family: "Fira sans"
+            font-size: 1.2em
+
           .grid-container
             display: flex
             align-items: center
@@ -348,9 +416,10 @@ body
                     background-color: rgba(0,0,0,0.2)
                   .count
                     position: absolute
+                    right: 0
                     font-size: 1.1em
-                    padding-left: 5px
-                    // padding-top: 5px
+                    padding-right: 5px
+                    padding-top: 5px
                     z-index: 9
                     background-color: #e3e0e0
                     color: transparent
@@ -375,7 +444,7 @@ body
                     .stack
                       position: absolute
                       left: 5%
-                      top: 50%
+                      top: 100%
                       span
                         text-align: left
                         padding-left: 5px
@@ -389,14 +458,14 @@ body
                       position: absolute
                       left: 50%
                       // top: 75%
-                      bottom: 10%
+                      bottom: -10%
                       transform: translateX(-30px)
                       cursor: pointer
                     .live-link
                       position: absolute
                       left: 50%
                       // top: 75%
-                      bottom: 10%
+                      bottom: -10%
                       cursor: pointer
 
               .project-21

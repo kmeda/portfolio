@@ -182,11 +182,17 @@ $('.overlay').each(function(i, elem){
   $(this).mouseenter(function(){
 
       TweenMax.to($(this).children(".popup"), .2, {'top': '40%', ease: Linear.easeNone});
-      TweenMax.to($(this).children(".count"), .2, {'top': '40%', ease: Linear.easeNone});
+      TweenMax.to($(this).children(".count"), 1.5, {'top': '40%', ease: Elastic.easeOut});
+      TweenMax.to($(this).find(".stack"), 1.5, {'top': '50%', ease: Elastic.easeOut});
+      TweenMax.to($(this).find(".github"), 1.5, {'bottom': '10%', ease: Elastic.easeOut});
+      TweenMax.to($(this).find(".live-link"), 1.5, {'bottom': '10%', ease: Elastic.easeOut});
     });
     $(this).mouseleave(function(){
 
       TweenMax.to($(this).children(".popup"), .2, {'top': '100%', ease: Linear.easeNone});
       TweenMax.to($(this).children(".count"), .2, {'top': '0%', ease: Linear.easeNone});
+      TweenMax.to($(this).find(".stack"), .3, {'top': '100%', ease: Linear.easeNone});
+      TweenMax.to($(this).find(".github"), .3, {'bottom': '-10%', ease: Linear.easeNone});
+      TweenMax.to($(this).find(".live-link"), .3, {'bottom': '-10%', ease: Linear.easeNone});
     });
 });
