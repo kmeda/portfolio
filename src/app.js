@@ -4,28 +4,28 @@ import './index.pug';
 import './libs/jquery.mousewheel.min.js';
 import 'gsap/src/uncompressed/plugins/ScrollToPlugin';
 
-$(document).ready(function(){
+$(window).on('load', function(){
+
+  verticalBarsAnimation();
+  sidebarAnimation();
+  blinkingPrompt();
+  goBackIndicator();
+  forwardIndicator();
+  dialAnimation();
 
 
-var width = window.innerWidth;
-var height = window.innerHeight;
+// All Events /----/----/
 
-window.addEventListener('resize', function(){
-  width = window.innerWidth;
-  height = window.innerHeight;
-
-});
-
-//Vertical Scrolling Library
+//Vertical Scrolling
 $(".outer-most").mousewheel(function(event, delta) {
 
-    this.scrollLeft -= (delta * 1);
+    this.scrollLeft -= (delta * 2);
     event.preventDefault();
 
 var left = $(".side-panel").offset().left;
 
 if (sidebarOpen && left < -300) {
-  console.log(left);
+
   setTimeout(function(){
     var tl = new TimelineMax();
 
@@ -44,30 +44,16 @@ if (sidebarOpen && left < -300) {
 
 });
 
-// Front area animation
-
-introTimeline();
-frontAreaAnimation();
-verticalBarsAnimation();
-sidebarAnimation();
-blinkingPrompt();
-goBackIndicator();
-forwardIndicator();
-dialAnimation();
-
-
-
 $('.back').click(function(){
-  console.log("Test");
+
   var tl = new TimelineMax();
+
   tl.to('.outer-most', .2, {marginLeft: "-60px"})
     .to('.outer-most', .1, {marginLeft: "0"})
     .to('.outer-most', 1, {scrollTo: {x: "0"},ease: Power2.easeOut});
-
 });
 
 $('.forward').click(function(){
-  console.log("Test");
   TweenMax.to('.outer-most', 1, {scrollTo: {x: 0.75*$('.outer-most').width()} ,ease: Power2.easeOut});
 });
 
@@ -79,18 +65,30 @@ $('.forward').mouseleave(function(){
   tiltDial();
 });
 
+$('.overlay').each(function(i, elem){
+
+  $(this).mouseenter(function(){
+      TweenMax.to($(this).children(".popup"), .2, {'top': '40%', ease: Linear.easeNone});
+      TweenMax.to($(this).children(".count"), 1.5, {'top': '40%', ease: Elastic.easeOut});
+      TweenMax.to($(this).find(".stack"), 1.5, {'top': '50%', ease: Elastic.easeOut});
+      TweenMax.to($(this).find(".github"), 1.5, {'bottom': '10%', ease: Elastic.easeOut});
+      TweenMax.to($(this).find(".live-link"), 1.5, {'bottom': '10%', ease: Elastic.easeOut});
+    });
+
+    $(this).mouseleave(function(){
+      TweenMax.to($(this).children(".popup"), .2, {'top': '100%', ease: Linear.easeNone});
+      TweenMax.to($(this).children(".count"), .2, {'top': '0%', ease: Linear.easeNone});
+      TweenMax.to($(this).find(".stack"), .3, {'top': '100%', ease: Linear.easeNone});
+      TweenMax.to($(this).find(".github"), .3, {'bottom': '-10%', ease: Linear.easeNone});
+      TweenMax.to($(this).find(".live-link"), .3, {'bottom': '-10%', ease: Linear.easeNone});
+    });
 });
 
-// All Functions
 
-var introTimeline = () => {
-
-}
+});
 
 
-var frontAreaAnimation = () => {
-
-}
+// All functions
 
 //Blinking prompt
 var blinkingPrompt = function(){
@@ -113,7 +111,7 @@ var forwardIndicator = function(){
 
 }
 
-// Sidebar pull indicator loop
+// Sidebar pull indicator
 var verticalBarsAnimation = () => {
   var tl = new TimelineMax({repeat:-1, repeatDelay:2.5});
 
@@ -159,13 +157,15 @@ var sidebarAnimation = ()=> {
   });
 }
 
+// Dial Rotation
 var dialAnimation = function(){
   TweenMax.set(['.outer-circle', '.inner-circle', '.top-dial'], {transformOrigin:"50% 50%"});
   TweenMax.to('.outer-circle', 75, {rotateZtransformOrigin: "center", rotation: -360, ease: Linear.easeNone, repeat: -1})
   TweenMax.to('.inner-circle', 100, {rotateZtransformOrigin: "center", rotation: 360, ease: Linear.easeNone, repeat: -1})
-}
+};
 
 
+// Tilt dial on mouse over forward-indicator
 var dialTilt = false;
 var tiltDial = function(){
   if (!dialTilt) {
@@ -175,24 +175,4 @@ var tiltDial = function(){
     TweenMax.to('#Layer_1', 0.2, {scale: 1, rotation: 0});
     dialTilt = false;
   }
-}
-
-$('.overlay').each(function(i, elem){
-
-  $(this).mouseenter(function(){
-
-      TweenMax.to($(this).children(".popup"), .2, {'top': '40%', ease: Linear.easeNone});
-      TweenMax.to($(this).children(".count"), 1.5, {'top': '40%', ease: Elastic.easeOut});
-      TweenMax.to($(this).find(".stack"), 1.5, {'top': '50%', ease: Elastic.easeOut});
-      TweenMax.to($(this).find(".github"), 1.5, {'bottom': '10%', ease: Elastic.easeOut});
-      TweenMax.to($(this).find(".live-link"), 1.5, {'bottom': '10%', ease: Elastic.easeOut});
-    });
-    $(this).mouseleave(function(){
-
-      TweenMax.to($(this).children(".popup"), .2, {'top': '100%', ease: Linear.easeNone});
-      TweenMax.to($(this).children(".count"), .2, {'top': '0%', ease: Linear.easeNone});
-      TweenMax.to($(this).find(".stack"), .3, {'top': '100%', ease: Linear.easeNone});
-      TweenMax.to($(this).find(".github"), .3, {'bottom': '-10%', ease: Linear.easeNone});
-      TweenMax.to($(this).find(".live-link"), .3, {'bottom': '-10%', ease: Linear.easeNone});
-    });
-});
+};
