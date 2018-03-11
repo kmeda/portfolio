@@ -46,8 +46,7 @@ body
     .v-bar-a, .v-bar-b
       width: 2px
       height: 100%
-      background-color: #6c6c6c
-
+      background-color: #6c6c6c 
 .outer-most
   min-width: 100%
   width: auto
@@ -56,6 +55,7 @@ body
   position: absolute
   background:
     image: url(../assets/texture.png)
+
   .side-panel
     display: inline-block
     width: 75%
@@ -299,69 +299,42 @@ body
                   height: 1px
                   background-color: rgba(10, 252, 155, 0.2)
                   position: relative
-                .level.html
-                  &::after
-                    content: ''
+                  .html
                     position: absolute
-                    width: 75%
                     height: 2px
-                    background-color: rgba(10, 252, 155, 1)
-                .level.javascript
-                  &::after
-                    content: ''
+                    background-color: $neon
+                  .javascript
                     position: absolute
-                    width: 65%
                     height: 2px
-                    background-color: rgba(10, 252, 155, 1)
-                .level.jquery
-                  &::after
-                    content: ''
+                    background-color: $neon
+                  .jquery
                     position: absolute
-                    width: 70%
                     height: 2px
-                    background-color: rgba(10, 252, 155, 1)
-                .level.react
-                  &::after
-                    content: ''
+                    background-color: $neon
+                  .react
                     position: absolute
-                    width: 80%
                     height: 2px
-                    background-color: rgba(10, 252, 155, 1)
-                .level.nodejs
-                  &::after
-                    content: ''
+                    background-color: $neon
+                  .nodejs
                     position: absolute
-                    width: 65%
                     height: 2px
-                    background-color: rgba(10, 252, 155, 1)
-                .level.mongo
-                  &::after
-                    content: ''
+                    background-color: $neon
+                  .mongo
                     position: absolute
-                    width: 60%
                     height: 2px
-                    background-color: rgba(10, 252, 155, 1)
-                .level.webpack
-                  &::after
-                    content: ''
+                    background-color: $neon
+                  .webpack
                     position: absolute
-                    width: 60%
                     height: 2px
-                    background-color: rgba(10, 252, 155, 1)
-                .level.ps
-                  &::after
-                    content: ''
+                    background-color: $neon
+                  .ps
                     position: absolute
-                    width: 45%
                     height: 2px
-                    background-color: rgba(10, 252, 155, 1)
-                .level.ai
-                  &::after
-                    content: ''
+                    background-color: $neon
+                  .ai
                     position: absolute
-                    width: 40%
                     height: 2px
-                    background-color: rgba(10, 252, 155, 1)
+                    background-color: $neon
         .projects-wrapper
           display: flex
           align-items: center
@@ -380,7 +353,7 @@ body
             position: absolute
             transform: rotate(-90deg)
             left: 0
-            background-color: rgba(10, 252, 155, 0.9)
+            background-color: $neon
             color: transparent
             -webkit-background-clip: text
             font-family: "Fira sans"
@@ -465,7 +438,7 @@ body
                       bottom: -10%
                       cursor: pointer
 
-              .project-21
+              .project-20
                 grid-column-start: 1
                 grid-column-end: 2
                 grid-row-start: 1
@@ -480,7 +453,7 @@ body
                     .description
                     .github
                     .live-link
-              .project-20
+              .project-19
                 grid-column-start: 1
                 grid-column-end: 2
                 grid-row-start: 2
@@ -490,7 +463,7 @@ body
                   size: cover
                   position: center
                   repeat: no-repeat
-              .project-19
+              .project-18
                 grid-column-start: 1
                 grid-column-end: 2
                 grid-row-start: 3
@@ -499,7 +472,7 @@ body
                   size: cover
                   position: center
                   repeat: no-repeat
-              .project-18
+              .project-17
                 grid-column-start: 2
                 grid-column-end: 3
                 grid-row-start: 1
@@ -509,7 +482,7 @@ body
                   size: cover
                   position: center
                   repeat: no-repeat
-              .project-17
+              .project-16
                 grid-column-start: 2
                 grid-column-end: 3
                 grid-row-start: 2
@@ -519,7 +492,7 @@ body
                   size: cover
                   position: center
                   repeat: no-repeat
-              .project-16
+              .project-15
                 grid-column-start: 2
                 grid-column-end: 3
                 grid-row-start: 3
@@ -528,21 +501,12 @@ body
                   size: cover
                   position: center
                   repeat: no-repeat
-              .project-15
+ 
+              .project-14
                 grid-column-start: 3
                 grid-column-end: 4
                 grid-row-start: 1
                 grid-row-end: 2
-                background:
-                  // image: url(../assets/project16.png)
-                  size: cover
-                  position: center
-                  repeat: no-repeat
-              .project-14
-                grid-column-start: 3
-                grid-column-end: 4
-                grid-row-start: 2
-                grid-row-end: 3
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180402/project14_y6saok.png)
                   size: cover
@@ -551,7 +515,7 @@ body
               .project-13
                 grid-column-start: 3
                 grid-column-end: 4
-                grid-row-start: 3
+                grid-row-start: 2
                 grid-row-end: 3
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180402/project13_wri7tn.png)
@@ -559,10 +523,10 @@ body
                   position: center
                   repeat: no-repeat
               .project-12
-                grid-column-start: 4
-                grid-column-end: 5
-                grid-row-start: 1
-                grid-row-end: 2
+                grid-column-start: 3
+                grid-column-end: 4
+                grid-row-start: 3
+                grid-row-end: 3
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180403/project12_sz4zvc.png)
                   size: cover
@@ -571,8 +535,8 @@ body
               .project-11
                 grid-column-start: 4
                 grid-column-end: 5
-                grid-row-start: 2
-                grid-row-end: 3
+                grid-row-start: 1
+                grid-row-end: 2
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180403/project11_ok5taw.png)
                   size: cover
@@ -581,7 +545,7 @@ body
               .project-10
                 grid-column-start: 4
                 grid-column-end: 5
-                grid-row-start: 3
+                grid-row-start: 2
                 grid-row-end: 3
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180403/project10_fdjhwk.png)
@@ -589,10 +553,10 @@ body
                   position: center
                   repeat: no-repeat
               .project-09
-                grid-column-start: 5
-                grid-column-end: 6
-                grid-row-start: 1
-                grid-row-end: 2
+                grid-column-start: 4
+                grid-column-end: 5
+                grid-row-start: 3
+                grid-row-end: 3
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180403/project09_xnciti.png)
                   size: cover
@@ -601,8 +565,8 @@ body
               .project-08
                 grid-column-start: 5
                 grid-column-end: 6
-                grid-row-start: 2
-                grid-row-end: 3
+                grid-row-start: 1
+                grid-row-end: 2
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180403/project08_wmg8q0.png)
                   size: cover
@@ -611,7 +575,7 @@ body
               .project-07
                 grid-column-start: 5
                 grid-column-end: 6
-                grid-row-start: 3
+                grid-row-start: 2
                 grid-row-end: 3
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180404/project07_lidrbh.png)
@@ -619,10 +583,10 @@ body
                   position: center
                   repeat: no-repeat
               .project-06
-                grid-column-start: 6
-                grid-column-end: 7
-                grid-row-start: 1
-                grid-row-end: 2
+                grid-column-start: 5
+                grid-column-end: 6
+                grid-row-start: 3
+                grid-row-end: 3
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180403/project06_ulao95.png)
                   size: cover
@@ -631,8 +595,8 @@ body
               .project-05
                 grid-column-start: 6
                 grid-column-end: 7
-                grid-row-start: 2
-                grid-row-end: 3
+                grid-row-start: 1
+                grid-row-end: 2
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180404/project05_nn9tbh.png)
                   size: cover
@@ -641,7 +605,7 @@ body
               .project-04
                 grid-column-start: 6
                 grid-column-end: 7
-                grid-row-start: 3
+                grid-row-start: 2
                 grid-row-end: 3
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180403/project04_sc4fia.png)
@@ -649,10 +613,10 @@ body
                   position: center
                   repeat: no-repeat
               .project-03
-                grid-column-start: 7
-                grid-column-end: 8
-                grid-row-start: 1
-                grid-row-end: 2
+                grid-column-start: 6
+                grid-column-end: 7
+                grid-row-start: 3
+                grid-row-end: 3
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180404/project03_zfag0i.png)
                   size: cover
@@ -661,8 +625,8 @@ body
               .project-02
                 grid-column-start: 7
                 grid-column-end: 8
-                grid-row-start: 2
-                grid-row-end: 3
+                grid-row-start: 1
+                grid-row-end: 2
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180404/project02_pxs8yt.png)
                   size: cover
@@ -671,7 +635,7 @@ body
               .project-01
                 grid-column-start: 7
                 grid-column-end: 8
-                grid-row-start: 3
+                grid-row-start: 2
                 grid-row-end: 3
                 background:
                   image: url(https://res.cloudinary.com/kmeda/image/upload/v1509180404/project01_v0j8wl.png)
@@ -701,3 +665,4 @@ body
   background: #6c6c6c
   border: 3px solid rgb(30, 31, 36)
   border-radius: 5px
+

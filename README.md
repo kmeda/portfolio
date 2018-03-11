@@ -1,7 +1,8 @@
-# pinterest_clone
+# Portfolio
 
-Freecodecamp Backend Project
+Freecodecamp Frontend Project
 
+Website layout inspired from nogram.co
 
-Link to the app.
-https://fcc-minterest.herokuapp.com/
+Animations made with GSAP library.
+

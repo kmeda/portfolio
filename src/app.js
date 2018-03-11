@@ -3,6 +3,7 @@ import '../styles/main.scss';
 import './index.pug';
 import './libs/jquery.mousewheel.min.js';
 import 'gsap/src/uncompressed/plugins/ScrollToPlugin';
+import { TweenMax, Elastic, TimelineMax, Linear, Power0, Power4 } from 'gsap';
 
 $(window).on('load', function(){
 
@@ -12,9 +13,18 @@ $(window).on('load', function(){
   goBackIndicator();
   forwardIndicator();
   dialAnimation();
+  animateSkills();
+
 
 
 // All Events /----/----/
+
+
+
+$(window).resize(function(){
+  width = document.body.clientWidth;
+  height = document.body.clientHeight;
+});
 
 //Vertical Scrolling
 $(".outer-most").mousewheel(function(event, delta) {
@@ -44,7 +54,7 @@ if (sidebarOpen && left < -300) {
 
 });
 
-$('.back').click(function(){
+$('.go-back-indicator').click(function(){
 
   var tl = new TimelineMax();
 
@@ -89,6 +99,8 @@ $('.overlay').each(function(i, elem){
 
 
 // All functions
+
+var width = document.body.clientWidth;
 
 //Blinking prompt
 var blinkingPrompt = function(){
@@ -160,8 +172,8 @@ var sidebarAnimation = ()=> {
 // Dial Rotation
 var dialAnimation = function(){
   TweenMax.set(['.outer-circle', '.inner-circle', '.top-dial'], {transformOrigin:"50% 50%"});
-  TweenMax.to('.outer-circle', 75, {rotateZtransformOrigin: "center", rotation: -360, ease: Linear.easeNone, repeat: -1})
-  TweenMax.to('.inner-circle', 100, {rotateZtransformOrigin: "center", rotation: 360, ease: Linear.easeNone, repeat: -1})
+  TweenMax.to('.outer-circle', 150, {rotateZtransformOrigin: "center", rotation: -360, ease: Linear.easeNone, repeat: -1})
+  TweenMax.to('.inner-circle', 200, {rotateZtransformOrigin: "center", rotation: 360, ease: Linear.easeNone, repeat: -1})
 };
 
 
@@ -176,3 +188,19 @@ var tiltDial = function(){
     dialTilt = false;
   }
 };
+
+
+// Animate skill set
+function getRandomFloat(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+var elem = $(`.level`).children();
+var animateSkills = function(){
+  var arr = [70, 67, 65, 70, 60, 55, 60, 39];
+  
+  for(var i = 0; i < arr.length; i++){
+    var time = getRandomFloat(0.9, 1.5);
+    TweenMax.to(elem[i], time, {width: arr[i]+'%', ease: Elastic.easeInOut, delay: 0.75});
+  }
+}
